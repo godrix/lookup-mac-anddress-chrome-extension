@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Lookup MAC Address</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	body{
+		 margin: 0;
+			padding: 0;
+			width: 400px;
+	}
+		.container {
+			margin-top: 10px;
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.container input {
+			flex: 1;
+			margin-right: 5px;
+			cursor: pointer;
+			background: none;
+			outline: none;
+			color: #909090;
+			text-transform: uppercase;
+			font-size: 16px;
+			border: solid #eee 2px;
+			border-radius: 3px;
+			height: 35px;
+			width: 250px;
+		}
+
+		.container input::placeholder {
+		text-transform: none;
+		color:#ccc;
+		}
+
+		.container button {
+			cursor: pointer;
+			background: #27ae60;
+			color: #fff;
+			width: 80px;
+			height: 40px;
+			font-size: 14px;
+			border: none;
+			border-radius: 3px;
+		}
+
+		.container footer {
+			background-color: #f0f0f0;
+			color: #636363;
+			font-family: 'Roboto', sans-serif;
+			font-size: 11px;
+			margin-top: 9px;
+			padding: 10px;
+			text-align: center;
+			width: 100%;
+		}
+
+		.container footer a {
+			text-decoration: none;
+			color: #27ae60;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<form>
+			<input type="text" placeholder="Search for MAC Address" autofocus required>
+			<button type="submit">Find</button>
+		</form>
+		<footer>
+			Made with &hearts; by <a target="_blank" href="https://github.com/godrix">@godrix</a>
+		</footer>
+	</div>
+</body>
+
+<script src="js/popup.js"></script>
+<script src="js/eventPage.js"></script>
+
+</html>
