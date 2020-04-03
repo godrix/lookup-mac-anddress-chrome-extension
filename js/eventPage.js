@@ -1,11 +1,11 @@
-const apiurl = 'https://bitbug-tech.umbler.net/api/look-mac-anddress';
+const apiurl = 'https://look-mac-anddrees.herokuapp.com';
 
 const lookupMacAndress = {
     getMAC: async (MACAddress) => {
         if(lookupMacAndress.isValidInputValue(MACAddress)){
             return 'Invalid Format';
         }
-        const response = await fetch(`${apiurl}/?mac=${MACAddress}`);
+        const response = await fetch(`${apiurl}/${MACAddress}`);
         const {vendor} = await response.json();
         
         return vendor;
@@ -40,14 +40,11 @@ chrome.contextMenus.create(contextmenuItem)
 chrome.contextMenus.onClicked.addListener(function(clickData) {
     if (clickData.menuItemId == "Lookup-MAC-Address" && clickData.selectionText) {
         lookupMacAndress.getMAC(clickData.selectionText).then((resolvedJson) => {
-            if(resolvedJson === '{"errors":{"detail":"Not Found"}}'){
-                resolvedJson = 'Not Found';
+            if(resolvedJson === undefined){
+                alert('The search term did not return any results');
+                return
             }
-                new Notification("Lookup Mac Address", {
-                    icon: 'icon128.png',
-                    body: resolvedJson
-                });
-            
+            alert(resolvedJson)
         }).catch((error) => {
             "Request failed " + error.message
         })
