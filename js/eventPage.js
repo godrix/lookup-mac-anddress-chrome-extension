@@ -11,19 +11,19 @@ const lookupMacAndress = {
         return vendor;
     },
     isValidInputValue:(mac)=>{
-        let ismac = lookupMacAndress.regexMACAdress(mac)
+        const ismac = lookupMacAndress.regexMACAdress(mac);
         if(ismac.length < 6){
-            return true
+            return true;
         }
-        return false
+        return false;
     },
     regexMACAdress:(mac) => {
-        let macRegex = mac.replace(/[^0-9a-fA-F]/g, '')
+        const macRegex = mac.replace(/[^0-9a-fA-F]/g, '')
         let MACNumbers = ""
         for (let i = 0; i < 6; i++) {
-            MACNumbers += macRegex.charAt(i)
+            MACNumbers += macRegex.charAt(i);
         }
-        return MACNumbers.toUpperCase()
+        return MACNumbers.toUpperCase();
     }
     
 }
@@ -34,7 +34,7 @@ const contextmenuItem = {
     "title": "Lookup MAC Address",
     "contexts": ["selection"]
 };
-chrome.contextMenus.create(contextmenuItem)
+chrome.contextMenus.create(contextmenuItem);
 
 
 chrome.contextMenus.onClicked.addListener(function(clickData) {
@@ -42,11 +42,11 @@ chrome.contextMenus.onClicked.addListener(function(clickData) {
         lookupMacAndress.getMAC(clickData.selectionText).then((resolvedJson) => {
             if(resolvedJson === undefined){
                 alert('The search term did not return any results');
-                return
+                return;
             }
             alert(resolvedJson)
         }).catch((error) => {
-            "Request failed " + error.message
+            "Request failed " + error.message;
         })
     }
 });

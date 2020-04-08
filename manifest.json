@@ -4,9 +4,8 @@
   "description": "Find the vendor / manufacturer of a device by its MAC Address with our lookup tool",
   "icons": {
           "128": "icon128.png" },
-  "version": "2.0",
+  "version": "2.3",
   "permissions":[
-    "notifications",
     "contextMenus"
   ],
   "web_accessible_resources": [

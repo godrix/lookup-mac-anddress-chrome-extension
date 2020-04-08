@@ -8,6 +8,7 @@ formInput.addEventListener('submit', (event) => {
 
 	lookupMacAndress.getMAC(input.value).then((resolvedJson) => {
 
+		input.value = 'Please wait';
 
 		if (resolvedJson === undefined) {
 			input.value = 'Not Found';
@@ -17,7 +18,8 @@ formInput.addEventListener('submit', (event) => {
 
 
 	}).catch((error) => {
-		alert("Request failed " + error.message)
+		alert("Request failed " + error.message);
+		input.value = '';
 	});
 
 });
