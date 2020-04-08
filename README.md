@@ -42,7 +42,7 @@
 Find the vendor/manufacturer of a device by its MAC Address with our lookup tool
 
 <h1 align="center">
-    <img alt="Login-Page" title="Login-Page" src="./.github/screenshots.png" width="500px" />
+    <img alt="Login-Page" title="Login-Page" src="./.github/screenshots.png" width="80%" />
 </h1>
 
 > You can use the browser bar, as well as select the mac address, press the left button and click on look mac address
