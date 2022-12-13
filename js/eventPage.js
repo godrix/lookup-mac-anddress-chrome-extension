@@ -32,24 +32,3 @@ const lookupMacAndress = {
     }
     
 }
-
-
-const contextmenuItem = {
-    "id": "Lookup-MAC-Address",
-    "title": "Lookup MAC Address",
-    "contexts": ["selection"]
-};
-chrome.contextMenus.create(contextmenuItem);
-
-chrome.contextMenus.onClicked.addListener((info, tab) => {
-    
-            lookupMacAndress.getMAC(info.selectionText).then((resolvedJson) => {
-            if(resolvedJson === undefined){
-                alert('The search term did not return any results');
-                return;
-            }
-            alert(resolvedJson);
-        }).catch((error) => {
-            "Request failed " + error.message;
-         })
-  });

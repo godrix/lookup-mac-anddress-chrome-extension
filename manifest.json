@@ -5,10 +5,6 @@
   "icons": {
           "128": "icon128.png" },
   "version": "3.0.0",
-  "permissions":[
-    "contextMenus",
-    "notifications"
-  ],
   "action":{
     "default_popup":"popup.html"
   },
