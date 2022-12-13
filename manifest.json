@@ -1,22 +1,19 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Lookup MAC Address",
   "description": "Find the vendor / manufacturer of a device by its MAC Address with our lookup tool",
   "icons": {
           "128": "icon128.png" },
   "version": "2.4",
   "permissions":[
-    "contextMenus"
+    "contextMenus",
+    "notifications"
   ],
-  "web_accessible_resources": [
-    "icon128.png"
-  ],
-  "browser_action":{
+  "action":{
     "default_popup":"popup.html"
   },
   "background":{
-    "scripts":["js/eventPage.js"],
-    "persistent": false
+    "service_worker":"js/eventPage.js"
   },
   "content_scripts":[
     {

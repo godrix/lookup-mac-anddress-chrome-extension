@@ -1,4 +1,4 @@
-const apiurl = 'https://gist.githubusercontent.com/godrix/480f09ee8c0ed8f76df1dee6b9b3ebf5/raw/5374329f0d5ea739ddae1275da0f86c38ea3cb9d/lookup-mac-anddress';
+const apiurl = 'https://godri.me/LookupMACAddress/mac.json';
 
 const lookupMacAndress = {
     getMAC: async (MACAddress) => {
@@ -41,17 +41,15 @@ const contextmenuItem = {
 };
 chrome.contextMenus.create(contextmenuItem);
 
-
-chrome.contextMenus.onClicked.addListener(function(clickData) {
-    if (clickData.menuItemId == "Lookup-MAC-Address" && clickData.selectionText) {
-        lookupMacAndress.getMAC(clickData.selectionText).then((resolvedJson) => {
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+    
+            lookupMacAndress.getMAC(info.selectionText).then((resolvedJson) => {
             if(resolvedJson === undefined){
                 alert('The search term did not return any results');
                 return;
             }
-            alert(resolvedJson)
+            alert(resolvedJson);
         }).catch((error) => {
             "Request failed " + error.message;
-        })
-    }
-});
+         })
+  });
