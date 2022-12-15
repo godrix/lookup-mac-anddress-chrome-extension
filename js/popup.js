@@ -6,7 +6,7 @@ const [input] = formInput;
 formInput.addEventListener('submit', (event) => {
 	event.preventDefault();
 
-	lookupMacAndress.getMAC(input.value).then((resolvedJson) => {
+	searchMac(input.value).then((resolvedJson) => {
 
 		input.value = 'Please wait';
 
@@ -14,11 +14,10 @@ formInput.addEventListener('submit', (event) => {
 			input.value = 'Not Found';
 			return
 		}
-		input.value = resolvedJson;
+		input.value = resolvedJson.vendor;
 
 
 	}).catch((error) => {
-		alert("Request failed " + error.message);
 		input.value = '';
 	});
 
